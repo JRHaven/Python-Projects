@@ -1,7 +1,14 @@
+# Cardlib: a library that shows ascci cards in a terminal
+
+# The libraries we will need. The clear library is one that I made.
 from sys import stdout
 import clear, random
 from time import sleep
+
+# Display cards
 def drawcrd(num, suite, amt):
+    # If the amount of cards requested is less than 5, show full card with
+    # one space in between each
     if((amt > 0) and (amt < 5)):
         stdout.write("               ")
         for i in range(1, amt+1):
@@ -10,6 +17,8 @@ def drawcrd(num, suite, amt):
         i = 0
         stdout.write("               ")
         for i in range(1, amt+1):
+            
+            # Leave enough space for a 10 to fit and not ruin the display
             if(num[i-1] == "10"):
                 stdout.write("|" + num[i-1] + "         | ")
             else:
@@ -21,6 +30,9 @@ def drawcrd(num, suite, amt):
             stdout.write("|" + suite[i-1] + "          | ")
         stdout.write("\n")
         i = 0
+        
+    # If the amount of cards requested is between 5 and 14, show the number
+    # and suite, one space, then start the next card
     if((amt > 4) and (amt < 15)):
         stdout.write("               ")
         for i in range(1, amt+1):
@@ -40,6 +52,9 @@ def drawcrd(num, suite, amt):
             stdout.write("|" + suite[i-1] + "  ")
         stdout.write("\n")
         i = 0
+    
+    # If there is 15 or more cards requested to show, collapse the cards asm
+    # much as possible
     if(amt > 14):
         stdout.write("               ")
         for i in range(1, amt+1):
@@ -59,11 +74,16 @@ def drawcrd(num, suite, amt):
             stdout.write("|" + suite[i-1] + " ")
         stdout.write("\n")
         i = 0
+
+# Show an animation for dealing
 def deal(maxcrds, nums, suites, speed):
     for i in range (1, maxcrds+1):
         clear.cs()
         drawcrd(nums, suites, i)
         sleep(speed)
+
+# Show an interface for choosing a card. Shows a list of numbers under the
+# cards
 def selection(amt):
         stdout.write("               ")
         if((amt > 0) and (amt < 5)):
@@ -108,6 +128,10 @@ def selection(amt):
                else:
                    stdout.write(str(i) + "  ")
            stdout.write("\n")
+        
+# Generates a list of random numbers A-K then returns them to the script that
+# imports the library. Does NOT act like a deck of cards. Does not keep track
+# of what was taken and that there can only be up to 4 of a certin number.
 def randomnums(amt):
     nums = []
     for i in range(1, amt+1):
@@ -127,6 +151,8 @@ def randomnums(amt):
             elif(thing == 3):
                 nums[i-1] = "K"
     return nums
+
+# Generates 1 random number A-K and returns a string
 def randomnum():
     num = "A"
     num = str(random.randint(1, 10))
@@ -141,6 +167,9 @@ def randomnum():
         elif(thing == 3):
             num = "K"
     return num
+
+# Like the randomnums library this returns a list of suites, using
+# the first letter of it (e.g. Spades = S)
 def randomsuites(amt):
     suites = []
     for i in range(1, amt+1):
@@ -156,6 +185,8 @@ def randomsuites(amt):
         elif(suites[i-1] == 4):
             suites[i-1] = "S"
     return suites
+
+# Like randomnum but returns a suite
 def randomsuite():
     suite = 1
     suite = random.randint(1, 4)
