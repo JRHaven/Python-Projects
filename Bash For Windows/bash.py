@@ -1,3 +1,6 @@
+# Bash is the script that handles the commands. Most commands it will call on other scripts to get the job done
+
+# Libraries
 from time import sleep
 import os
 import username
@@ -14,6 +17,8 @@ import touch
 import rm
 import filechk
 import cp
+
+# Main function. First Set all other system variables
 def run():
     os.chdir(systemvariables.exepath)
     os.chdir("../../../../")
@@ -23,12 +28,17 @@ def run():
     os.chdir("Documents")
     systemvariables.USRDOCS = os.getcwd()
     zzz = 1
+    
+    # Get user name
     cd.go("/")
     user = open("Bash/Bash/Settings/ivhzadgz.bws", "r")
     usr = user.read()
     user.close()
+    
+    # Get back to "Home" folder
     cd.go("~")
     while(zzz == 1):
+        # Change display depending on where the user is in the file system
         if(os.getcwd() == systemvariables.ROOT):
             display = "/"
         elif(os.getcwd() == systemvariables.HOME):
@@ -37,7 +47,11 @@ def run():
             display = "~/Documents"
         else:
             display = os.getcwd()
+            
+        # Prompt
         command = input(usr + "@" + socket.gethostname() + ":" + display + " $ ")
+        
+        # Run the command. If it dosen't exist, display a message
         if(command == "exit"):
             zzz = 0
         elif(command == "ls"):
@@ -91,6 +105,8 @@ def run():
                 else:
                     print('Bash: ' + command + " command not found")
     exit()
+
+# More checking for other scripts to use
 def usrcheck():
     incorrect = True
     while(incorrect == True):
