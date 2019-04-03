@@ -1,5 +1,10 @@
+# username sets the username and password
+
+# Libraries
 import os
 import systemvariables
+
+# Main Function
 def get(path):
     os.chdir(path)
     if(os.path.exists("../../Settings/ivhzadgz.bws") == True):
