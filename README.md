@@ -9,3 +9,6 @@ cardlib is a script full of importable libraries that show ascci cards in a term
 
 Build basic house.py:
 A script for Minecraft Pi Edition that builds a house depending on how high you want it to go.
+
+clear.py:
+A script that contains a library that clears the terminal screen based on what platform you are running
