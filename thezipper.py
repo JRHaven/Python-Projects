@@ -1,24 +1,36 @@
+# theZipper is one of my proudest scripts made with Python. It simply zips up a folder.
+
+# Libraries
 import os
 import zipfile
 import tarfile
 import platform
 from time import sleep
+
+# Define a clear function for cleaner code
 def clear():
     if(platform.system() == "Windows"):
         os.system("cls")
     else:
         os.system("clear")
+        
+# Zip a folder using .zip format
 def zipdir(path, ziph):
-    # ziph is zipfile handle
     for root, dirs, files in os.walk(path):
         for file in files:
             ziph.write(os.path.join(root, file))
+            
+# Zip a folder using the .tar.gz format
 def make_tarfile(output_filename, source_dir):
     with tarfile.open(output_filename, "w:gz") as tar:
         tar.add(source_dir, arcname=os.path.basename(source_dir))
+        
+# Clear the screen then set some variables
 clear()
 zipmethod = ""
 fol = ""
+
+# Function to find which format to use based on platform
 def find_platform():
     if(platform.system() == "Windows"):
         zipmethod = ".zip"
@@ -35,18 +47,26 @@ def find_platform():
                           + "or " +'"' + ".tar.gz" + '"' + " for compatibility accross"
                           + "all platforms.) # ")
         return zipmethod
+
+# Make the progress bar work better
 def update_bar(lastdialogue):
     clear()
     print("theZipper is now zipping files...")
     print("")
     print(lastdialogue)
+    
+# Main function
 def zipfol():
     lastdialogue = "0%... [                ] "
+    
+    # Go up a directory
     if(zipmethod == ".zip"):
         if(platform.system() == "Windows"):
             os.chdir(fol + "\..")
         else:
             os.chdir(fol + "/..")
+        
+        # Start zipping using a progress bar
         lastdialogue = "25%... [||||            ]"
         update_bar(lastdialogue)
         zipf = zipfile.ZipFile(zipnam + ".zip", 'w', zipfile.ZIP_DEFLATED)
@@ -68,10 +88,14 @@ def zipfol():
         make_tarfile(zipnam + ".tar.gz", folnam)
         lastdialogue = "100%... [||||||||||||||||]"
         update_bar(lastdialogue)
+        
+# Execution ouside of the functions
 print("Welcome to theZipper Zip Wizard!")
 print("")
 print("")
 zipmethod = find_platform()
+
+# Commented lines are for debugging purposes only
 #print(platform.system())
 #print(zipmethod)
 clear()
