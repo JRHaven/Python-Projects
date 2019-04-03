@@ -1,7 +1,12 @@
+# usrmgr2 checks for a needed repair in the user folders
+
+# Libraries
 import os
 import repair
 import bash
 import usrmgr
+
+# Main function
 def usrcheck(path):
     if(os.path.exists("Settings") == False):
         choice = input("Unfortunatly, Bash for Windows could not find settings. Do you want to try to fix this with Bash for Windows Repair? [y, N] # ")
