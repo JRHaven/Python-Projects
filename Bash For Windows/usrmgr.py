@@ -1,7 +1,14 @@
+# usrmgr is a script responsable for the login prompt, the not-yet implemented multiple user function and
+# welcoming the user into Bash For Windows. Despite not being the first script executed, this is the first
+# time the user interacts with Bash For Windows.
+
+# Libraries
 import os
 import repair
 import bash
 import systemvariables
+
+# Login Prompt
 def logon():
     os.chdir(systemvariables.exepath)
     os.chdir("../../")
@@ -45,6 +52,8 @@ def logon():
     print("Welcome to Bash(the Bourne Again Shell) for Windows!")
     user.close()
     bash.run()
+    
+# Function for checking a password based on username provided
 def checkpassword():
     session = systemvariables.usrsession
     user = ""
