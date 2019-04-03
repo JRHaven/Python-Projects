@@ -1,5 +1,0 @@
-usrsession = "" 
-HOME = ""
-ROOT = ""
-exepath = ""
-USRDOCS = ""
