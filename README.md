@@ -14,7 +14,7 @@ clear.py:
 A script that contains a library that clears the terminal screen based on what platform you are running
 
 # Licensing
-All these scripts are under the MIT License.\n\n
+All these scripts are under the MIT License.
 
 Copyright 2019 Jeremiah Haven
 
