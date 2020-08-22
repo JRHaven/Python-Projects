@@ -13,6 +13,9 @@ A script for Minecraft Pi Edition that builds a house depending on how high you 
 clear.py:
 A script that contains a library that clears the terminal screen based on what platform you are running
 
+cipher.py:
+A script that ciphers and deciphers text files
+
 # Licensing
 All these scripts are under the MIT License.
 
