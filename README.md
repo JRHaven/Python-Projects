@@ -16,10 +16,14 @@ A script that contains a library that clears the terminal screen based on what p
 cipher.py:
 A script that ciphers and deciphers text files
 
+scheduler.py:
+A script that will be the baseline of some other scripts of mine in the future, this will execute code after a certain amount of time such as
+years, months, days. Check out the extended description of the commit for more info.
+
 # Licensing
 All these scripts are under the MIT License.
 
-Copyright 2019-2020 Jeremiah Haven
+Copyright 2019-2023 Jeremiah Haven
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
