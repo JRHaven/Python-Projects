@@ -1,24 +1,7 @@
 # Python-Projects
-All of the scripts that I have written in Python
+A repository for all of the one-off Python scripts that I've written. Some are useful. Some have been useful at some point in my life. Some I use. Some I don't use anymore.
 
-Python is my favorite programing language. I have written many Python scripts, and here they are.
-
-
-cardlib.py:
-cardlib is a script full of importable libraries that show ascci cards in a terminal.
-
-Build basic house.py:
-A script for Minecraft Pi Edition that builds a house depending on how high you want it to go.
-
-clear.py:
-A script that contains a library that clears the terminal screen based on what platform you are running
-
-cipher.py:
-A script that ciphers and deciphers text files
-
-scheduler.py:
-A script that will be the baseline of some other scripts of mine in the future, this will execute code after a certain amount of time such as
-years, months, days. Check out the extended description of the commit for more info.
+To see my more extensive projects written in Python, such as my Weather-Displayer script, check out my other repositories. Bigger projects tend to have their own dedicated repository.
 
 # Licensing
 All these scripts are under the MIT License.
